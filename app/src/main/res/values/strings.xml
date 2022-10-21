@@ -5,4 +5,10 @@
     <string name="hint_user">Username</string>
     <string name="text_no_account">Dont have an account? Register</string>
     <string name="img_content_login">Login activity image</string>
+    <string name="register">Register</string>
+    <string name="text_have_account">Already have an account? Login</string>
+    <string name="hint_owner">Owner name</string>
+    <string name="hint_email">Email</string>
+    <string name="hint_phone">Phone number</string>
+    <string name="hint_location">Location</string>
 </resources>
