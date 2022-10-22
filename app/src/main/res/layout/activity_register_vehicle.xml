@@ -2,16 +2,14 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/OuterLayLogin"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_gravity="center_vertical"
     android:layout_margin="20dp"
-    android:orientation="vertical"
-    tools:context=".Login">
+    android:layout_gravity="center_vertical"
+    tools:context=".RegisterVehicle">
 
     <ScrollView
-        android:id="@+id/LoginScroll"
+        android:id="@+id/RegScroll"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -20,40 +18,73 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <LinearLayout
-            android:id="@+id/InnerLayLogin"
+            android:id="@+id/InnerLayReg"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
             <TextView
-                android:id="@+id/loginMenuLabel"
+                android:id="@+id/regMenuLabel"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
                 android:layout_weight="1"
-                android:text="@string/login"
+                android:text="@string/register"
                 android:textSize="20sp" />
 
             <ImageView
-                android:id="@+id/loginImg"
+                android:id="@+id/regImg"
                 android:layout_width="match_parent"
-                android:layout_height="319dp"
+                android:layout_height="310dp"
+                android:layout_marginBottom="20dp"
                 android:contentDescription="@string/img_content_login"
                 tools:srcCompat="@tools:sample/backgrounds/scenic" />
 
             <EditText
-                android:id="@+id/loginUser"
+                android:id="@+id/regVehicleOwnerName"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:ems="10"
-                android:hint="@string/hint_user"
+                android:hint="@string/hint_v_owner_name"
                 android:importantForAutofill="no"
                 android:inputType="textPersonName"
                 android:minHeight="48dp"
                 android:padding="10dp" />
 
             <EditText
-                android:id="@+id/loginPassword"
+                android:id="@+id/regVehicleNo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:ems="10"
+                android:hint="@string/hint_v_no"
+                android:importantForAutofill="no"
+                android:inputType="phone"
+                android:minHeight="48dp"
+                android:padding="10dp" />
+
+
+            <Spinner
+                android:id="@+id/spinnerFuelType"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:contentDescription="@string/spinner_content_desc" />
+
+            <EditText
+                android:id="@+id/regVOwnerEmail"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:ems="10"
+                android:hint="@string/hint_email"
+                android:importantForAutofill="no"
+                android:inputType="textEmailAddress"
+                android:minHeight="48dp"
+                android:padding="10dp" />
+
+            <EditText
+                android:id="@+id/regVOwnerPassword"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -65,12 +96,12 @@
                 android:padding="10dp" />
 
             <Button
-                android:id="@+id/loginButton"
+                android:id="@+id/regButton"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="24dp"
                 android:layout_marginBottom="10dp"
-                android:text="@string/login"
+                android:text="@string/register"
                 tools:ignore="DuplicateSpeakableTextCheck" />
 
             <TextView
@@ -79,7 +110,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="4dp"
                 android:gravity="center"
-                android:text="@string/text_no_account" />
+                android:text="@string/text_have_account" />
 
         </LinearLayout>
     </ScrollView>
