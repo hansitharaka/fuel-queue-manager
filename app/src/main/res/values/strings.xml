@@ -16,6 +16,9 @@
     <string name="hint_v_owner_name">Vehicle Owner name</string>
     <string name="hint_v_no">Vehicle Number</string>
     <string name="spinner_content_desc">Select fuel type</string>
+    <string name="my_profile">Profile</string>
+    <string name="back_button">back button</string>
+    <string name="edit_profile">Edit Profile</string>
     <string-array name="fuel_types">
         <item>Petrol</item>
         <item>Diesel</item>
