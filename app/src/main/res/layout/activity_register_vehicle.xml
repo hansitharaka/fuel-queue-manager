@@ -72,7 +72,7 @@
                 android:contentDescription="@string/spinner_content_desc" />
 
             <EditText
-                android:id="@+id/regStationEmail"
+                android:id="@+id/regVOwnerEmail"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -84,7 +84,7 @@
                 android:padding="10dp" />
 
             <EditText
-                android:id="@+id/regPassword"
+                android:id="@+id/regVOwnerPassword"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
