@@ -43,13 +43,25 @@
                 tools:srcCompat="@tools:sample/backgrounds/scenic" />
 
             <EditText
-                android:id="@+id/regStationOwner"
+                android:id="@+id/regStationName"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:ems="10"
-                android:hint="@string/hint_owner"
+                android:hint="@string/hint_station_name"
                 android:importantForAutofill="no"
                 android:inputType="textPersonName"
+                android:minHeight="48dp"
+                android:padding="10dp" />
+
+            <EditText
+                android:id="@+id/regStationAddress"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:ems="10"
+                android:hint="@string/hint_address"
+                android:importantForAutofill="no"
+                android:inputType="phone"
                 android:minHeight="48dp"
                 android:padding="10dp" />
 
@@ -62,31 +74,6 @@
                 android:hint="@string/hint_email"
                 android:importantForAutofill="no"
                 android:inputType="textEmailAddress"
-                android:minHeight="48dp"
-                android:padding="10dp" />
-
-            <EditText
-                android:id="@+id/regStationPhone"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:ems="10"
-                android:hint="@string/hint_phone"
-                android:importantForAutofill="no"
-                android:inputType="phone"
-                android:minHeight="48dp"
-                android:padding="10dp"
-                tools:ignore="TextContrastCheck" />
-
-            <EditText
-                android:id="@+id/regStationLocation"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:ems="10"
-                android:hint="@string/hint_location"
-                android:importantForAutofill="no"
-                android:inputType="phone"
                 android:minHeight="48dp"
                 android:padding="10dp" />
 
@@ -118,6 +105,7 @@
                 android:layout_marginBottom="4dp"
                 android:gravity="center"
                 android:text="@string/text_have_account" />
+
         </LinearLayout>
     </ScrollView>
 
