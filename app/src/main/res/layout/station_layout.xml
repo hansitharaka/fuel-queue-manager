@@ -92,9 +92,11 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
             android:layout_marginEnd="16dp"
+            android:minHeight="48dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent"
+            tools:ignore="SpeakableTextPresentCheck"
             tools:srcCompat="@drawable/ic_baseline_arrow_forward_ios_24" />
 
 
