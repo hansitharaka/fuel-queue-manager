@@ -13,4 +13,11 @@
     <string name="hint_address">Address</string>
     <string name="label_fuel_station">Fuel Station</string>
     <string name="label_vehicle">Vehicle</string>
+    <string name="hint_v_owner_name">Vehicle Owner name</string>
+    <string name="hint_v_no">Vehicle Number</string>
+    <string name="spinner_content_desc">Select fuel type</string>
+    <string-array name="fuel_types">
+        <item>Petrol</item>
+        <item>Diesel</item>
+    </string-array>
 </resources>
