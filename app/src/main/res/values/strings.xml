@@ -22,6 +22,17 @@
     <string name="label_fuel_type">Fuel Type</string>
     <string name="near_by_stations">Near by stations</string>
     <string name="seach_location">Search by Location</string>
+    <string name="station_main_label">Fuel Queue Status</string>
+    <string name="f_arrived">Fuel Arrived</string>
+    <string name="f_finished">Fuel Finished</string>
+    <string name="fuel_status_label">Fuel Status</string>
+    <string name="average_waiting_time">Sample Time</string>
+    <string name="avg_wt_time_label">Average Waiting Time</string>
+    <string name="petrol">Petrol</string>
+    <string name="diesel">Diesel</string>
+    <string name="petrolQ">00</string>
+    <string name="dieselQ">00</string>
+    <string name="avg_waiting_time">00:00</string>
     <string-array name="fuel_types">
         <item>Fuel Type</item>
         <item>Petrol</item>
