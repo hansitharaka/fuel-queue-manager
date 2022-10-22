@@ -19,7 +19,9 @@
     <string name="my_profile">Profile</string>
     <string name="back_button">back button</string>
     <string name="edit_profile">Edit Profile</string>
+    <string name="label_fuel_type">Fuel Type</string>
     <string-array name="fuel_types">
+        <item>Fuel Type</item>
         <item>Petrol</item>
         <item>Diesel</item>
     </string-array>
