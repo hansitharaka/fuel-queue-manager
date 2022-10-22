@@ -20,6 +20,8 @@
     <string name="back_button">back button</string>
     <string name="edit_profile">Edit Profile</string>
     <string name="label_fuel_type">Fuel Type</string>
+    <string name="near_by_stations">Near by stations</string>
+    <string name="seach_location">Search by Location</string>
     <string-array name="fuel_types">
         <item>Fuel Type</item>
         <item>Petrol</item>
