@@ -13,7 +13,7 @@
         android:layout_width="50dp"
         android:layout_height="50dp"
         android:contentDescription="@string/back_button"
-        app:srcCompat="@drawable/ic_launcher_background"
+        app:srcCompat="@drawable/ic_baseline_arrow_back_ios_new_24"
         tools:ignore="SpeakableTextPresentCheck,RedundantDescriptionCheck,ImageContrastCheck" />
 
     <TextView
@@ -43,7 +43,7 @@
                 android:layout_height="310dp"
                 android:layout_marginBottom="20dp"
                 android:contentDescription="@string/img_content_login"
-                tools:srcCompat="@tools:sample/backgrounds/scenic" />
+                tools:srcCompat="@drawable/by_my_car_pana" />
 
             <TextView
                 android:id="@+id/vOwnerLabel"
@@ -62,7 +62,7 @@
                 android:minHeight="48dp"
                 android:padding="10dp"
                 android:textSize="20sp"
-                android:text="@string/hint_v_owner_name"
+                android:text="@string/v_name"
                 tools:ignore="DuplicateSpeakableTextCheck" />
 
             <TextView
@@ -82,7 +82,7 @@
                 android:textSize="20sp"
                 android:minHeight="48dp"
                 android:padding="10dp"
-                android:text="@string/hint_v_no"
+                android:text="@string/v_no"
                 tools:ignore="DuplicateSpeakableTextCheck" />
 
             <TextView
@@ -102,7 +102,7 @@
                 android:textSize="20sp"
                 android:minHeight="48dp"
                 android:padding="10dp"
-                android:text="@string/label_fuel_type" />
+                android:text="@string/v_f_type" />
 
             <Button
                 android:id="@+id/editVehicleOwner"

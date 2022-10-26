@@ -34,22 +34,22 @@
                 android:id="@+id/arrived_btn"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:drawableTop="@mipmap/ic_launcher_round"
-                android:drawablePadding="10dp"
-                android:padding="20dp"
                 android:layout_marginEnd="10dp"
+                android:layout_weight="1"
+                android:drawableTop="@drawable/check_mark"
+                android:drawablePadding="20dp"
+                android:padding="20dp"
                 android:text="@string/f_arrived" />
 
             <Button
                 android:id="@+id/finished_btn"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:drawableTop="@mipmap/ic_launcher_round"
-                android:drawablePadding="10dp"
-                android:padding="20dp"
                 android:layout_marginStart="10dp"
+                android:layout_weight="1"
+                android:drawableTop="@drawable/cancel"
+                android:drawablePadding="20dp"
+                android:padding="20dp"
                 android:text="@string/f_finished" />
         </LinearLayout>
 

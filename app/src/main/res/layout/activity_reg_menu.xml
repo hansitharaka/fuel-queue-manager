@@ -9,10 +9,12 @@
 
     <Button
         android:id="@+id/regVehicleBtn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="130dp"
+        android:layout_height="130dp"
         android:layout_marginTop="112dp"
-        android:drawableTop="@drawable/ic_launcher_background"
+        android:background="@color/colorPrimary"
+        android:backgroundTintMode="add"
+        android:drawableTop="@drawable/gas_station__4_"
         android:drawablePadding="20dp"
         android:padding="10dp"
         android:text="@string/label_vehicle"
@@ -23,9 +25,9 @@
 
     <Button
         android:id="@+id/regStationButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:drawableTop="@drawable/ic_launcher_background"
+        android:layout_width="130dp"
+        android:layout_height="130dp"
+        android:drawableTop="@drawable/car__1_"
         android:drawablePadding="20dp"
         android:padding="10dp"
         android:text="@string/label_fuel_station"

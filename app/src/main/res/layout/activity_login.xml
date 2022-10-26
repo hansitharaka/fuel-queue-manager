@@ -32,14 +32,16 @@
                 android:layout_marginTop="16dp"
                 android:layout_weight="1"
                 android:text="@string/login"
-                android:textSize="20sp" />
+                android:textColor="@color/black"
+                android:textSize="20sp"
+                android:textStyle="bold" />
 
             <ImageView
                 android:id="@+id/loginImg"
                 android:layout_width="match_parent"
                 android:layout_height="319dp"
                 android:contentDescription="@string/img_content_login"
-                tools:srcCompat="@tools:sample/backgrounds/scenic" />
+                tools:srcCompat="@drawable/mobile_login_pana" />
 
             <EditText
                 android:id="@+id/loginUser"
