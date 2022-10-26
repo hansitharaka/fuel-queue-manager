@@ -8,6 +8,7 @@ import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 
 public class Login extends AppCompatActivity {
 
@@ -16,6 +17,7 @@ public class Login extends AppCompatActivity {
 
     // Variables
     private EditText email, password;
+    private TextView login_text;
     private Button loginBtn;
 
     private String mail, pwd;
@@ -28,7 +30,15 @@ public class Login extends AppCompatActivity {
         // Initialize
         email = findViewById(R.id.loginUser);
         password = findViewById(R.id.loginPassword);
+        login_text = findViewById(R.id.textView2);
         loginBtn = findViewById(R.id.loginButton);
+
+        login_text.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(Login.this, RegMenu.class));
+            }
+        });
 
         loginBtn.setOnClickListener(new View.OnClickListener() {
             @Override
