@@ -28,7 +28,7 @@ import java.util.Map;
 public class RegisterStation extends AppCompatActivity {
 
     // Constant for REST API for User
-    private final String BASE_URL = "https://fuel-queue-manager-be.azurewebsites.net";
+    private final String BASE_URL = "https://fuel-queue-manager-be.azurewebsites.net/refillstation";
     // Constant for Logcat identification
     private final String TAG = "REG_STATION: ";
 
@@ -102,7 +102,7 @@ public class RegisterStation extends AppCompatActivity {
 
             JsonObjectRequest request = new JsonObjectRequest(
                     Request.Method.POST,
-                    BASE_URL + "/refillstation",
+                    BASE_URL,
                     station_obj,
                     new Response.Listener<JSONObject>() {
                         @Override
