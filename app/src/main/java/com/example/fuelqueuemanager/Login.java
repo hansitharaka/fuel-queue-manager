@@ -9,6 +9,9 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
+
+import com.example.fuelqueuemanager.Utils.DBHelper;
 
 public class Login extends AppCompatActivity {
 
@@ -21,6 +24,7 @@ public class Login extends AppCompatActivity {
     private Button loginBtn;
 
     private String mail, pwd;
+    private DBHelper dbHelper;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -70,7 +74,21 @@ public class Login extends AppCompatActivity {
         if (isValid()) {
 
             // Verify credentials
+            Boolean credentials = dbHelper.checkCredentials(mail, pwd);
 
+            if (credentials == true) {
+                //assign user role
+                String user_role = String.valueOf(dbHelper.getRole(mail));
+
+                if (user_role == "0") {
+                    startActivity(new Intent(Login.this, VehicleOwnerMain.class));
+                } else {
+                    startActivity(new Intent(Login.this, StationOwnerMain.class));
+                }
+
+            } else {
+                Toast.makeText(getApplicationContext(), "Incorrect Password", Toast.LENGTH_LONG).show();
+            }
 
             //redirect to Login
             startActivity(new Intent(Login.this, StationOwnerMain.class));
