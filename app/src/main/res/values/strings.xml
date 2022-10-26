@@ -37,6 +37,7 @@
     <string name="update_your_status">Update Your Status</string>
     <string name="check_out">Check Out</string>
     <string name="check_in">Check In</string>
+    <string name="register_no">Register No</string>
     <string-array name="fuel_types">
         <item>Fuel Type</item>
         <item>Petrol</item>

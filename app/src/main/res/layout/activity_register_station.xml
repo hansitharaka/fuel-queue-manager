@@ -54,6 +54,17 @@
                 android:padding="10dp" />
 
             <EditText
+                android:id="@+id/regStationNo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:hint="@string/register_no"
+                android:importantForAutofill="no"
+                android:inputType="textPersonName"
+                android:minHeight="48dp"
+                android:padding="10dp" />
+
+            <EditText
                 android:id="@+id/regStationAddress"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
