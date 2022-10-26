@@ -22,7 +22,9 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:text="@string/my_profile"
-        android:textSize="20sp" />
+        android:textColor="@color/black"
+        android:textSize="20sp"
+        android:textStyle="bold" />
 
     <ScrollView
         android:id="@+id/scroll"
@@ -51,7 +53,7 @@
                 android:layout_height="0dp"
                 android:layout_marginBottom="10dp"
                 android:layout_weight="1"
-                android:text="@string/hint_station_name"
+                android:text="Station Name"
                 android:textSize="20sp" />
 
             <TextView
@@ -71,18 +73,38 @@
                 android:layout_height="0dp"
                 android:layout_marginBottom="10dp"
                 android:layout_weight="1"
-                android:text="@string/hint_address"
+                android:text="Location"
                 android:textSize="20sp" />
 
             <TextView
-                android:id="@+id/stationAddress"
+                android:id="@+id/stationName"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="20dp"
                 android:textSize="20sp"
                 android:minHeight="48dp"
                 android:padding="10dp"
-                android:text="@string/hint_address"
+                android:text="@string/hint_station_name"
+                tools:ignore="DuplicateSpeakableTextCheck" />
+
+            <TextView
+                android:id="@+id/stationRegNoLabel"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_marginBottom="10dp"
+                android:layout_weight="1"
+                android:text="Registration No"
+                android:textSize="20sp" />
+
+            <TextView
+                android:id="@+id/stationRegNo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="20dp"
+                android:textSize="20sp"
+                android:minHeight="48dp"
+                android:padding="10dp"
+                android:text="CFT-52663536"
                 tools:ignore="DuplicateSpeakableTextCheck" />
 
             <Button
