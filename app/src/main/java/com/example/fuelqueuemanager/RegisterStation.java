@@ -18,6 +18,7 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
 import com.example.fuelqueuemanager.Utils.ApiService;
+import com.example.fuelqueuemanager.Utils.DBHelper;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -38,11 +39,14 @@ public class RegisterStation extends AppCompatActivity {
     private Button regBtn;
 
     private String station_name, station_address, station_mail, station_pwd, station_reg_no;
+    private DBHelper dbHelper;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register_station);
+
+        dbHelper = new DBHelper(this);
 
         // Initialize
         stationName = findViewById(R.id.regStationName);
@@ -99,51 +103,75 @@ public class RegisterStation extends AppCompatActivity {
     private void AddStation() throws JSONException {
 
         if (isValid()) {
-            // Generate Id
-            UUID id = UUID.randomUUID();
-            JSONObject station_obj = new JSONObject();
-            station_obj.put("id", id);
-            station_obj.put("stationName", station_name);
-            station_obj.put("address", station_address);
-            station_obj.put("registrationNumber", station_reg_no);
+
+            Boolean check_user = dbHelper.checkUser(station_mail);
+
+            // Not an existing user
+            if (check_user == false) {
+                // Generate Id
+                UUID id = UUID.randomUUID();
+                JSONObject station_obj = new JSONObject();
+                station_obj.put("id", id);
+                station_obj.put("stationName", station_name);
+                station_obj.put("address", station_address);
+                station_obj.put("registrationNumber", station_reg_no);
 
 //            station_obj.put("id", "3fas4564-57d7-4562-b3fc-2e963f66aff6");
 //            station_obj.put("stationName", "STATION NAME");
 //            station_obj.put("address", "LOCATION");
 //            station_obj.put("registrationNumber", "TEST-REG-123");
 
-            JsonObjectRequest request = new JsonObjectRequest(
-                    Request.Method.POST,
-                    BASE_URL,
-                    station_obj,
-                    new Response.Listener<JSONObject>() {
-                        @Override
-                        public void onResponse(JSONObject response) {
-                            Log.i(TAG, response.toString());
+                JsonObjectRequest request = new JsonObjectRequest(
+                        Request.Method.POST,
+                        BASE_URL,
+                        station_obj,
+                        new Response.Listener<JSONObject>() {
+                            @Override
+                            public void onResponse(JSONObject response) {
+                                Log.i(TAG, response.toString());
 
-                            //redirect to Login
-                            startActivity(new Intent(RegisterStation.this, Login.class));
+                                // Register to local db
+                                RegUser();
+                            }
+                        },
+                        new Response.ErrorListener() {
+                            @Override
+                            public void onErrorResponse(VolleyError error) {
+                                Log.e(TAG, error.toString());
+                            }
                         }
-                    },
-                    new Response.ErrorListener() {
-                        @Override
-                        public void onErrorResponse(VolleyError error) {
-                            Log.e(TAG, error.toString());
-                            Toast.makeText(RegisterStation.this, "Registration failed", Toast.LENGTH_SHORT).show();
-                        }
-                    }
-            ) {
-                // Passing some request headers
+                ) {
+                    // Passing some request headers
 //                @Override
 //                public Map<String, String> getHeaders() {
 //                    HashMap<String, String> headers = new HashMap<>();
 //                    headers.put("Content-Type", "application/json");
 //                    return headers;
 //                }
-            };
+                };
 
-            // Add the request to the RequestQueue
-            Volley.newRequestQueue(getApplicationContext()).add(request);
+                // Add the request to the RequestQueue
+                Volley.newRequestQueue(getApplicationContext()).add(request);
+
+            } else {
+                Toast.makeText(getApplicationContext(), "You are an existing user", Toast.LENGTH_SHORT).show();
+            }
+        }
+
+
+    }
+
+
+    private void RegUser() {
+
+        Boolean register = dbHelper.insertData(station_mail,station_pwd, "1");
+
+        if( register == true){
+            Toast.makeText(getApplicationContext(), "Successfully Registered", Toast.LENGTH_SHORT).show();
+            //redirect to Login
+            startActivity(new Intent(RegisterStation.this, Login.class));
+        } else {
+            Toast.makeText(getApplicationContext(), "Registration Failed", Toast.LENGTH_SHORT).show();
 
         }
     }

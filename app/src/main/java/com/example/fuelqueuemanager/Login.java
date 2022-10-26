@@ -37,6 +37,8 @@ public class Login extends AppCompatActivity {
         login_text = findViewById(R.id.textView2);
         loginBtn = findViewById(R.id.loginButton);
 
+        dbHelper = new DBHelper(this);
+
         login_text.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -80,9 +82,11 @@ public class Login extends AppCompatActivity {
                 //assign user role
                 String user_role = String.valueOf(dbHelper.getRole(mail));
 
+                Toast.makeText(getApplicationContext(), "Successfully", Toast.LENGTH_LONG).show();
+
                 if (user_role == "0") {
                     startActivity(new Intent(Login.this, VehicleOwnerMain.class));
-                } else {
+                } else if (user_role == "1"){
                     startActivity(new Intent(Login.this, StationOwnerMain.class));
                 }
 
@@ -90,8 +94,6 @@ public class Login extends AppCompatActivity {
                 Toast.makeText(getApplicationContext(), "Incorrect Password", Toast.LENGTH_LONG).show();
             }
 
-            //redirect to Login
-            startActivity(new Intent(Login.this, StationOwnerMain.class));
         }
     }
 

@@ -19,6 +19,7 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
+import com.example.fuelqueuemanager.Utils.DBHelper;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -38,11 +39,14 @@ public class RegisterVehicle extends AppCompatActivity implements AdapterView.On
     private Spinner spinner;
 
     private String v_owner_name, v_number, v_mail, v_pwd, v_fuelTYpe, v_address;
+    private DBHelper dbHelper;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register_vehicle);
+
+        dbHelper = new DBHelper(this);
 
         // Initialize
         vehicleOwnerName = findViewById(R.id.regVehicleOwnerName);
@@ -139,15 +143,14 @@ public class RegisterVehicle extends AppCompatActivity implements AdapterView.On
                         public void onResponse(JSONObject response) {
                             Log.i(TAG, response.toString());
 
-                            //redirect to Login
-                            startActivity(new Intent(RegisterVehicle.this, Login.class));
+                            // Register to local db
+                            RegUser();
                         }
                     },
                     new Response.ErrorListener() {
                         @Override
                         public void onErrorResponse(VolleyError error) {
                             Log.e(TAG, error.toString());
-                            Toast.makeText(RegisterVehicle.this, "Registration failed", Toast.LENGTH_SHORT).show();
                         }
                     }
             ) {
@@ -168,5 +171,19 @@ public class RegisterVehicle extends AppCompatActivity implements AdapterView.On
     @Override
     public void onNothingSelected(AdapterView<?> parent) {
 
+    }
+
+    private void RegUser() {
+
+        Boolean register = dbHelper.insertData(v_mail,v_pwd, "0");
+
+        if( register == true){
+            Toast.makeText(getApplicationContext(), "Successfully Registered", Toast.LENGTH_SHORT).show();
+            //redirect to Login
+            startActivity(new Intent(RegisterVehicle.this, Login.class));
+        } else {
+            Toast.makeText(getApplicationContext(), "Registration Failed", Toast.LENGTH_SHORT).show();
+
+        }
     }
 }
