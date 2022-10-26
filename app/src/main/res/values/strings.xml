@@ -2,7 +2,7 @@
     <string name="app_name">Fuel Queue Manager</string>
     <string name="login">Login</string>
     <string name="hint_pwd">Password</string>
-    <string name="hint_user">Username</string>
+    <string name="hint_user">Email</string>
     <string name="text_no_account">Dont have an account? Register</string>
     <string name="img_content_login">Login activity image</string>
     <string name="register">Register</string>
