@@ -3,14 +3,14 @@
     <string name="login">Login</string>
     <string name="hint_pwd">Password</string>
     <string name="hint_user">Email</string>
-    <string name="text_no_account">Dont have an account? Register</string>
+    <string name="text_no_account">Don\'t have an account? Register</string>
     <string name="img_content_login">Login activity image</string>
     <string name="register">Register</string>
     <string name="text_have_account">Already have an account? Login</string>
-    <string name="hint_station_name">Malabe Station</string>
+    <string name="hint_station_name">Station name</string>
     <string name="hint_email">Email</string>
     <string name="hint_phone">Phone number</string>
-    <string name="hint_address">Malabe</string>
+    <string name="hint_address">Address</string>
     <string name="label_fuel_station">Fuel Station</string>
     <string name="label_vehicle">Vehicle</string>
     <string name="hint_v_owner_name">Vehicle Owner name</string>

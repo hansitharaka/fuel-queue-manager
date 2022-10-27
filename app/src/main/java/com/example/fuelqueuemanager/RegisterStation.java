@@ -6,26 +6,19 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Log;
-import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
-import com.example.fuelqueuemanager.Utils.ApiService;
 import com.example.fuelqueuemanager.Utils.DBHelper;
 
 import org.json.JSONException;
 import org.json.JSONObject;
-
-import java.util.HashMap;
-import java.util.Map;
-import java.util.UUID;
 
 public class RegisterStation extends AppCompatActivity {
 
@@ -58,12 +51,12 @@ public class RegisterStation extends AppCompatActivity {
 
         // Reg button onclick
         regBtn.setOnClickListener(view -> {
-//            try {
-//                AddStation();
-                RegUser();
-//            } catch (JSONException e) {
-//                e.printStackTrace();
-//            }
+            try {
+                AddStation();
+            } catch (JSONException e) {
+                Log.i(TAG, String.valueOf(e));
+                e.printStackTrace();
+            }
 
         });
     }
@@ -107,20 +100,14 @@ public class RegisterStation extends AppCompatActivity {
 
             Boolean check_user = dbHelper.findUser(station_mail);
 
-            // Not an existing user
-            if (check_user == false) {
-                // Generate Id
-                UUID id = UUID.randomUUID();
+//             Not an existing user
+            if (!check_user) {
+
                 JSONObject station_obj = new JSONObject();
-                station_obj.put("id", id);
                 station_obj.put("stationName", station_name);
                 station_obj.put("address", station_address);
                 station_obj.put("registrationNumber", station_reg_no);
-
-//            station_obj.put("id", "3fas4564-57d7-4562-b3fc-2e963f66aff6");
-//            station_obj.put("stationName", "STATION NAME");
-//            station_obj.put("address", "LOCATION");
-//            station_obj.put("registrationNumber", "TEST-REG-123");
+                station_obj.put("email", station_mail);
 
                 JsonObjectRequest request = new JsonObjectRequest(
                         Request.Method.POST,
@@ -141,15 +128,7 @@ public class RegisterStation extends AppCompatActivity {
                                 Log.e(TAG, error.toString());
                             }
                         }
-                ) {
-                    // Passing some request headers
-//                @Override
-//                public Map<String, String> getHeaders() {
-//                    HashMap<String, String> headers = new HashMap<>();
-//                    headers.put("Content-Type", "application/json");
-//                    return headers;
-//                }
-                };
+                ) ;
 
                 // Add the request to the RequestQueue
                 Volley.newRequestQueue(getApplicationContext()).add(request);
@@ -165,8 +144,7 @@ public class RegisterStation extends AppCompatActivity {
 
     private void RegUser() {
 
-//        boolean register = dbHelper.insertData(station_mail,station_pwd, "station");
-        boolean register = dbHelper.insertData("test22@mail.com","22", "station");
+        boolean register = dbHelper.insertData(station_mail,station_pwd, "station");
 
         if(register){
             Toast.makeText(getApplicationContext(), "Successfully Registered", Toast.LENGTH_SHORT).show();

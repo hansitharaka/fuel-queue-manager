@@ -24,7 +24,6 @@ import com.example.fuelqueuemanager.Utils.DBHelper;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.util.UUID;
 
 public class RegisterVehicle extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
 
@@ -58,7 +57,7 @@ public class RegisterVehicle extends AppCompatActivity implements AdapterView.On
         spinner = findViewById(R.id.spinnerFuelType);
 
         // Created ArrayAdapter with custom spinner layout
-        ArrayAdapter adapterCategory = ArrayAdapter.createFromResource(this, R.array.fuel_types, R.layout.custom_spinner);
+        ArrayAdapter<CharSequence> adapterCategory = ArrayAdapter.createFromResource(this, R.array.fuel_types, R.layout.custom_spinner);
 
         // Specify the custom layout to use when the list of choices appears
         adapterCategory.setDropDownViewResource(R.layout.custom_spinner);
@@ -71,11 +70,11 @@ public class RegisterVehicle extends AppCompatActivity implements AdapterView.On
             @Override
             public void onClick(View view) {
                 RegUser();
-//                try {
-//                    AddVehicle();
-//                } catch (JSONException e) {
-//                    e.printStackTrace();
-//                }
+                try {
+                    AddVehicle();
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
             }
         });
     }
@@ -121,19 +120,13 @@ public class RegisterVehicle extends AppCompatActivity implements AdapterView.On
 
         if (isValid()) {
 
-            // Generate Id
-            UUID id = UUID.randomUUID();
             JSONObject station_obj = new JSONObject();
-//            station_obj.put("id", "3fas4564-57d7-4562-b3fc-2e963f66aff6");
-//            station_obj.put("username", "NAME");
-//            station_obj.put("address", "LOCATION");
-//            station_obj.put("fuelType", "Petrol");
 
-            station_obj.put("id", id);
             station_obj.put("username", v_owner_name);
-            station_obj.put("address", v_address);
+            station_obj.put("adress", v_address);
             station_obj.put("fuelType", v_fuelTYpe);
             station_obj.put("vehicleNumber", v_number);
+            station_obj.put("email", v_mail);
 
             JsonObjectRequest request = new JsonObjectRequest(
                     Request.Method.POST,
@@ -176,8 +169,7 @@ public class RegisterVehicle extends AppCompatActivity implements AdapterView.On
 
     private void RegUser() {
 
-//        boolean register = dbHelper.insertData(v_mail,v_pwd, "vehicle");
-        boolean register = dbHelper.insertData("ts@mail.com","ss", "vehicle");
+        boolean register = dbHelper.insertData(v_mail,v_pwd, "vehicle");
 
         if(register){
             Toast.makeText(getApplicationContext(), "Successfully Registered", Toast.LENGTH_SHORT).show();

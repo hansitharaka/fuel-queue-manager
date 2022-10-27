@@ -9,6 +9,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -23,6 +24,7 @@ public class Login extends AppCompatActivity {
     private EditText email, password;
     private TextView login_text;
     private Button loginBtn;
+    private ImageView imageView;
 
     private String mail, pwd;
     private DBHelper dbHelper;
@@ -37,6 +39,7 @@ public class Login extends AppCompatActivity {
         password = findViewById(R.id.loginPassword);
         login_text = findViewById(R.id.textView2);
         loginBtn = findViewById(R.id.loginButton);
+        imageView = findViewById(R.id.loginImg);
 
         dbHelper = new DBHelper(this);
 
