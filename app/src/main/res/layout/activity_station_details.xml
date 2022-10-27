@@ -20,7 +20,7 @@
                 android:layout_width="50dp"
                 android:layout_height="50dp"
                 android:contentDescription="@string/back_button"
-                app:srcCompat="@drawable/ic_launcher_background"
+                app:srcCompat="@drawable/ic_baseline_arrow_back_ios_new_24"
                 tools:ignore="SpeakableTextPresentCheck,RedundantDescriptionCheck,ImageContrastCheck" />
 
             <TextView
@@ -29,7 +29,8 @@
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="20dp"
                 android:text="@string/hint_station_name"
-                android:textSize="20sp" />
+                android:textSize="24sp"
+                android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/stationAddress"
@@ -60,7 +61,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginEnd="5dp"
                     android:layout_marginBottom="10dp"
-                    android:background="@color/cardview_dark_background"
+                    android:background="@android:color/holo_red_light"
                     android:paddingStart="20dp"
                     android:paddingTop="5dp"
                     android:paddingEnd="15dp"
@@ -74,7 +75,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="5dp"
                     android:layout_marginBottom="10dp"
-                    android:background="@color/cardview_dark_background"
+                    android:background="@android:color/holo_green_light"
                     android:paddingStart="15dp"
                     android:paddingTop="5dp"
                     android:paddingEnd="20dp"
@@ -198,7 +199,6 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:drawableTop="@mipmap/ic_launcher_round"
                         android:drawablePadding="10dp"
                         android:padding="20dp"
                         android:layout_marginEnd="10dp"
@@ -209,7 +209,6 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:drawableTop="@mipmap/ic_launcher_round"
                         android:drawablePadding="10dp"
                         android:padding="20dp"
                         android:layout_marginStart="10dp"

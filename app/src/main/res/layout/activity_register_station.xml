@@ -32,7 +32,9 @@
                 android:layout_marginTop="16dp"
                 android:layout_weight="1"
                 android:text="@string/register"
-                android:textSize="20sp" />
+                android:textColor="@color/black"
+                android:textSize="20sp"
+                android:textStyle="bold" />
 
             <ImageView
                 android:id="@+id/regImg"
@@ -40,7 +42,7 @@
                 android:layout_height="310dp"
                 android:layout_marginBottom="20dp"
                 android:contentDescription="@string/img_content_login"
-                tools:srcCompat="@tools:sample/backgrounds/scenic" />
+                tools:srcCompat="@drawable/fuel_station_bro" />
 
             <EditText
                 android:id="@+id/regStationName"
@@ -48,6 +50,17 @@
                 android:layout_height="wrap_content"
                 android:ems="10"
                 android:hint="@string/hint_station_name"
+                android:importantForAutofill="no"
+                android:inputType="textPersonName"
+                android:minHeight="48dp"
+                android:padding="10dp" />
+
+            <EditText
+                android:id="@+id/regStationNo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:hint="@string/register_no"
                 android:importantForAutofill="no"
                 android:inputType="textPersonName"
                 android:minHeight="48dp"
