@@ -70,11 +70,12 @@ public class RegisterVehicle extends AppCompatActivity implements AdapterView.On
         regBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                try {
-                    AddVehicle();
-                } catch (JSONException e) {
-                    e.printStackTrace();
-                }
+                RegUser();
+//                try {
+//                    AddVehicle();
+//                } catch (JSONException e) {
+//                    e.printStackTrace();
+//                }
             }
         });
     }

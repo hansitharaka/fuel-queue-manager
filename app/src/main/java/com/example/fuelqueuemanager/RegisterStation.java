@@ -58,11 +58,12 @@ public class RegisterStation extends AppCompatActivity {
 
         // Reg button onclick
         regBtn.setOnClickListener(view -> {
-            try {
-                AddStation();
-            } catch (JSONException e) {
-                e.printStackTrace();
-            }
+//            try {
+//                AddStation();
+                RegUser();
+//            } catch (JSONException e) {
+//                e.printStackTrace();
+//            }
 
         });
     }
@@ -104,7 +105,7 @@ public class RegisterStation extends AppCompatActivity {
 
         if (isValid()) {
 
-            Boolean check_user = dbHelper.checkUser(station_mail);
+            Boolean check_user = dbHelper.findUser(station_mail);
 
             // Not an existing user
             if (check_user == false) {
@@ -165,7 +166,7 @@ public class RegisterStation extends AppCompatActivity {
     private void RegUser() {
 
 //        boolean register = dbHelper.insertData(station_mail,station_pwd, "station");
-        boolean register = dbHelper.insertData("test2@mail.com","", "station");
+        boolean register = dbHelper.insertData("test22@mail.com","22", "station");
 
         if(register){
             Toast.makeText(getApplicationContext(), "Successfully Registered", Toast.LENGTH_SHORT).show();
