@@ -46,42 +46,38 @@ public class DBHelper extends SQLiteOpenHelper {
         return newUser != -1;
     }
 
-    public Boolean checkUser(String username){
+    public Boolean findUser(String email){
 
-        SQLiteDatabase myDB = this.getWritableDatabase();
-        Cursor cursor = myDB.rawQuery("select * from usersNew where username = ?",new String[] {username});
+        SQLiteDatabase database = this.getReadableDatabase();
+        Cursor cursor = database.rawQuery("SELECT * FROM User where email = ?",new String[] { email } );
 
-        if(cursor.getCount()>0){
-            return true;
-        }
-        else{
-            return false;
-        }
+        return cursor.getCount() > 0;
     }
 
-    public Boolean checkCredentials(String username, String password) {
-        SQLiteDatabase myDB = this.getWritableDatabase();
-        Cursor cursor = myDB.rawQuery("select * from usersNew where username = ? and password = ?", new String[]{username, password});
+    public Boolean checkCredentials(String email, String password) {
 
-        if (cursor.getCount() > 0) {
+        SQLiteDatabase myDB = this.getReadableDatabase();
 
-//            Cursor cursorRole = myDB.rawQuery("select role from users where username = ?", new String[]{username});
-//            String userRole = String.valueOf(cursorRole);
-//            return userRole;
-            return true;
-        }
-        else {
-            return false;
-        }
+        Cursor cursor = myDB.rawQuery(
+                "SELECT * FROM User " +
+                        "WHERE email = ? " +
+                        "AND password = ?", new String[]{ email, password } );
+
+        return cursor.getCount() > 0;
 
     }
 
-    public Cursor getRole(String username){
-        SQLiteDatabase myDB = this.getWritableDatabase();
-        Cursor cursorRole = myDB.rawQuery("select role from usersNew where username = ?", new String[]{username});
-        String userRole = String.valueOf(cursorRole);
-        Log.i("UserRole", "getRole: "+userRole);
-        return cursorRole;
+    public String getRole(String email){
+
+        SQLiteDatabase database = this.getReadableDatabase();
+
+        Cursor cursorRole = database.rawQuery(
+                "SELECT role FROM User " +
+                        "WHERE email = ?", new String[]{ email } );
+
+        cursorRole.moveToFirst();
+
+        return cursorRole.getString(0);
 
     }
 }

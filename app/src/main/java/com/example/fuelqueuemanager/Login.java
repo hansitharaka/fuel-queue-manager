@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -76,17 +77,17 @@ public class Login extends AppCompatActivity {
         if (isValid()) {
 
             // Verify credentials
-            Boolean credentials = dbHelper.checkCredentials(mail, pwd);
+            boolean credentials = dbHelper.checkCredentials(mail, pwd);
 
-            if (credentials == true) {
+            if (credentials) {
                 //assign user role
                 String user_role = String.valueOf(dbHelper.getRole(mail));
 
-                Toast.makeText(getApplicationContext(), "Successfully", Toast.LENGTH_LONG).show();
+                Toast.makeText(getApplicationContext(), "Login Successful", Toast.LENGTH_LONG).show();
 
-                if (user_role == "0") {
+                if (user_role.equals("vehicle")) {
                     startActivity(new Intent(Login.this, VehicleOwnerMain.class));
-                } else if (user_role == "1"){
+                } else if (user_role.equals("station")){
                     startActivity(new Intent(Login.this, StationOwnerMain.class));
                 }
 
