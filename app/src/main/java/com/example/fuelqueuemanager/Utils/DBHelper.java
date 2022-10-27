@@ -10,37 +10,40 @@ import android.util.Log;
 public class DBHelper extends SQLiteOpenHelper {
 
     public DBHelper(Context context) {
-        super(context,"LoginNew.db", null,1);
+        super(context,"FuelLogin.db", null,1);
     }
 
     @Override
     public void onCreate(SQLiteDatabase sqLiteDatabase) {
 
-        sqLiteDatabase.execSQL("create Table usersNew(username Text primary key, password Text, role Text)");
+        sqLiteDatabase.execSQL("" +
+                "CREATE TABLE UserLogin(" +
+                "email TEXT PRIMARY KEY, " +
+                "password TEXT, " +
+                "role TEXT" +
+                ")");
     }
 
     @Override
-    public void onUpgrade(SQLiteDatabase sqLiteDatabase, int i, int i1) {
+    public void onUpgrade(SQLiteDatabase sqLiteDatabase, int older, int newer) {
 
-        sqLiteDatabase.execSQL("drop Table if exists usersNew");
+        sqLiteDatabase.execSQL("DROP TABLE IF EXISTS user");
+        onCreate(sqLiteDatabase);
     }
 
-    public boolean insertData(String username, String password, String role){
+    public boolean insertData(String email, String password, String role){
 
-        SQLiteDatabase myDB = this.getWritableDatabase();
+        SQLiteDatabase database = this.getWritableDatabase();
+
         ContentValues contentvalues = new ContentValues();
-        contentvalues.put("username",username);
+        contentvalues.put("email",email);
         contentvalues.put("password",password);
         contentvalues.put("role",role);
 
-        long result = myDB.insert("usersNew",null,contentvalues);
+        long newUser = database.insert("user",null, contentvalues);
+        database.close();
 
-        if(result == -1){
-            return false;
-        }
-        else {
-            return true;
-        }
+        return newUser != -1;
     }
 
     public Boolean checkUser(String username){

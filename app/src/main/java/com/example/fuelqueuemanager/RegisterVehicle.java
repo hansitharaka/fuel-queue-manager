@@ -175,9 +175,10 @@ public class RegisterVehicle extends AppCompatActivity implements AdapterView.On
 
     private void RegUser() {
 
-        Boolean register = dbHelper.insertData(v_mail,v_pwd, "0");
+//        boolean register = dbHelper.insertData(v_mail,v_pwd, "vehicle");
+        boolean register = dbHelper.insertData("ts@mail.com","ss", "vehicle");
 
-        if( register == true){
+        if(register){
             Toast.makeText(getApplicationContext(), "Successfully Registered", Toast.LENGTH_SHORT).show();
             //redirect to Login
             startActivity(new Intent(RegisterVehicle.this, Login.class));

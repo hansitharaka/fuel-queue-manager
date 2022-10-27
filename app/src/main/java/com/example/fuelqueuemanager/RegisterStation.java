@@ -164,9 +164,10 @@ public class RegisterStation extends AppCompatActivity {
 
     private void RegUser() {
 
-        Boolean register = dbHelper.insertData(station_mail,station_pwd, "1");
+//        boolean register = dbHelper.insertData(station_mail,station_pwd, "station");
+        boolean register = dbHelper.insertData("test2@mail.com","", "station");
 
-        if( register == true){
+        if(register){
             Toast.makeText(getApplicationContext(), "Successfully Registered", Toast.LENGTH_SHORT).show();
             //redirect to Login
             startActivity(new Intent(RegisterStation.this, Login.class));
